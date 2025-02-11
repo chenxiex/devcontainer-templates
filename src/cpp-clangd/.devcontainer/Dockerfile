@@ -13,7 +13,7 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 ARG SWITCHMIRROR="${templateOption:switchMirror}"
 
 RUN if [ "${SWITCHMIRROR}" = "true" ]; then \
-        bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+        curl -sSL https://linuxmirrors.cn/main.sh | bash; \
     fi
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
