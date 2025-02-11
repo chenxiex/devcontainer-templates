@@ -1,6 +1,6 @@
 {
     "id": "cpp-clangd",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "C++ & Clangd",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/cpp",
