@@ -28,6 +28,11 @@
                 "3.22.2"
             ],
             "default": "none"
+        },
+        "switchMirror": {
+            "type": "boolean",
+            "description": "Switch apt mirror to a faster one.",
+            "default": "false"
         }
     },
     "platforms": ["C++"],

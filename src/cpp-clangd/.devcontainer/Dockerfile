@@ -10,6 +10,12 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
     fi \
     && rm -f /tmp/reinstall-cmake.sh
 
+ARG SWITCHMIRROR="${templateOption:switchMirror}"
+
+RUN if [ "${SWITCHMIRROR}" = "true" ]; then \
+        bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+    fi
+
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends clangd
 
