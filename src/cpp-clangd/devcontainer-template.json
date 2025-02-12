@@ -1,6 +1,6 @@
 {
     "id": "cpp-clangd",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "name": "C++ & Clangd",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/cpp",
@@ -17,7 +17,7 @@
                 "ubuntu-22.04",
                 "ubuntu-20.04"
             ],
-            "default": "debian-11"
+            "default": "debian-12"
         },
         "reinstallCmakeVersionFromSource": {
             "type": "string",
@@ -30,9 +30,15 @@
             "default": "none"
         },
         "switchMirror": {
-            "type": "boolean",
+            "type": "string",
             "description": "Switch apt mirror to a faster one.",
-            "default": "false"
+            "proposals": [
+                "none",
+                "mirrors.aliyun.com",
+                "mirrors.nju.edu.cn",
+                "mirrors.xtom.com"
+            ],
+            "default": "none"
         }
     },
     "platforms": ["C++"],

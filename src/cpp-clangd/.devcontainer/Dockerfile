@@ -12,9 +12,9 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 
 ARG SWITCHMIRROR="${templateOption:switchMirror}"
 
-RUN if [ "${SWITCHMIRROR}" = "true" ]; then \
+RUN if [ "${SWITCHMIRROR}" != "none" ]; then \
         curl -sSL https://linuxmirrors.cn/main.sh | bash -s -- \
-        --source mirrors.tencent.com \
+        --source ${SWITCHMIRROR} \
         --protocol https \
         --use-intranet-source false\
         --backup true \
