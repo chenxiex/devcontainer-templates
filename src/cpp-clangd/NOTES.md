@@ -3,6 +3,10 @@ This template references an image that was [pre-built](https://containers.dev/im
 * **Image**: mcr.microsoft.com/devcontainers/cpp ([source](https://github.com/devcontainers/images/tree/main/src/cpp))
 * **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/cpp/.devcontainer/devcontainer.json))
 
+### Disclaimer for switchMirror
+
+The switchMirror function utilizes services provided by the third-party website [linuxmirrors.cn](https://linuxmirrors.cn). Please be aware that by using this service, you may be subject to the terms and conditions and privacy policies of the third-party website. We do not assume any responsibility for the content, availability, or accuracy of the services provided by the third-party website. Use this function at your own risk.
+
 ### Using Vcpkg
 
 This dev container and its associated image includes a clone of the [`Vcpkg`](https://github.com/microsoft/vcpkg) repo for library packages, and a bootstrapped instance of the [Vcpkg-tool](https://github.com/microsoft/vcpkg-tool) itself.
