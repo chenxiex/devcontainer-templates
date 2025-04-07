@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/cpp:1-${templateOption:imageVariant}
+FROM ghcr.io/chenxiex/devcontainer-templates/cpp-extra:1-${templateOption:imageVariant}
 
 ARG SWITCHMIRROR="${templateOption:switchMirror}"
 
@@ -22,9 +22,6 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
         chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
     fi \
     && rm -f /tmp/reinstall-cmake.sh
-
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends clangd clang-tidy clang-format
 
 # [Optional] Uncomment this section to install additional vcpkg ports.
 # RUN su vscode -c "${VCPKG_ROOT}/vcpkg install <your-port-name-here>"
