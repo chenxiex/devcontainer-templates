@@ -1,15 +1,5 @@
 FROM mcr.microsoft.com/devcontainers/cpp:1-${templateOption:imageVariant}
 
-ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
-
-# Optionally install the cmake for vcpkg
-COPY ./reinstall-cmake.sh /tmp/
-
-RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
-        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
-    fi \
-    && rm -f /tmp/reinstall-cmake.sh
-
 ARG SWITCHMIRROR="${templateOption:switchMirror}"
 
 RUN if [ "${SWITCHMIRROR}" != "none" ]; then \
@@ -22,6 +12,16 @@ RUN if [ "${SWITCHMIRROR}" != "none" ]; then \
         --clean-cache true \
         --ignore-backup-tips; \
     fi
+
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
+
+# Optionally install the cmake for vcpkg
+COPY ./reinstall-cmake.sh /tmp/
+
+RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
+        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
+    fi \
+    && rm -f /tmp/reinstall-cmake.sh
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends clangd clang-tidy clang-format
