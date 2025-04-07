@@ -6,16 +6,18 @@ name: images-cpp-extra
 # documentation.
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    paths:
+      - "images/cpp-extra/**"
+      - ".github/workflows/images-cpp-extra.yaml"
 
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: chenxiex/devcontainer-templates/cpp-extra
+  IMAGE_NAME: chenxiex/devcontainer/images/cpp-extra
 
 
 jobs:

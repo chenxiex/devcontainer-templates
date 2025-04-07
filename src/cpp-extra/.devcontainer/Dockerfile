@@ -1,4 +1,4 @@
-FROM ghcr.io/chenxiex/devcontainer-templates/cpp-extra:1-${templateOption:imageVariant}
+FROM ghcr.io/chenxiex/devcontainer/images/cpp-extra:1-${templateOption:imageVariant}
 
 ARG SWITCHMIRROR="${templateOption:switchMirror}"
 
