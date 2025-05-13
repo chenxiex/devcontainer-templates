@@ -1,3 +1,4 @@
+ARG BASE_TAG
 FROM mcr.microsoft.com/devcontainers/cpp:${BASE_TAG}
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
