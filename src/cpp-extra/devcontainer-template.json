@@ -1,8 +1,8 @@
 {
     "id": "cpp-extra",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "name": "C++ extra",
-    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools and more.",
+    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools and dev tools such as clangd.",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/cpp",
     "publisher": "chenxiex",
     "licenseURL": "https://github.com/chenxiex/devcontainer-templates/blob/main/LICENSE",
@@ -26,17 +26,6 @@
                 "none",
                 "3.21.5",
                 "3.22.2"
-            ],
-            "default": "none"
-        },
-        "switchMirror": {
-            "type": "string",
-            "description": "Switch apt mirror to a faster one.",
-            "proposals": [
-                "none",
-                "mirrors.aliyun.com",
-                "mirrors.nju.edu.cn",
-                "mirrors.xtom.com"
             ],
             "default": "none"
         }

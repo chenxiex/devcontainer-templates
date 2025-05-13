@@ -1,18 +1,5 @@
 FROM ghcr.io/chenxiex/devcontainer/images/cpp-extra:1-${templateOption:imageVariant}
 
-ARG SWITCHMIRROR="${templateOption:switchMirror}"
-
-RUN if [ "${SWITCHMIRROR}" != "none" ]; then \
-        curl -sSL https://linuxmirrors.cn/main.sh | bash -s -- \
-        --source ${SWITCHMIRROR} \
-        --protocol https \
-        --use-intranet-source false\
-        --backup true \
-        --upgrade-software false \
-        --clean-cache true \
-        --ignore-backup-tips; \
-    fi
-
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
 
 # Optionally install the cmake for vcpkg
