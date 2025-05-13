@@ -1,4 +1,3 @@
-ARG BASE_TAG=1-debian-12
 FROM mcr.microsoft.com/devcontainers/cpp:${BASE_TAG}
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

@@ -1,6 +1,6 @@
 {
     "id": "cpp-extra",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "name": "C++ extra",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools and dev tools such as clangd.",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/cpp",
