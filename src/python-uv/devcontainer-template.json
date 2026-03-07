@@ -1,9 +1,9 @@
 {
-    "id": "python-pip",
-    "version": "1.1.0",
-    "name": "Python with pip",
-    "description": "Develop Python 3 applications with pip package manager.",
-    "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/python-pip",
+    "id": "python-uv",
+    "version": "1.0.0",
+    "name": "Python with uv",
+    "description": "Develop Python 3 applications with uv",
+    "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/python-uv",
     "publisher": "chenxiex",
     "licenseURL": "https://github.com/chenxiex/devcontainer-templates/blob/main/LICENSE",
     "options": {

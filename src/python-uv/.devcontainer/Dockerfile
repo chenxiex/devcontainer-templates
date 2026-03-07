@@ -1,9 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/python:2-${templateOption:imageVariant}
 
-# Install pip packages if requirements.txt is present
-COPY requirements.txt noop.txt /tmp/pip-tmp/
-RUN if [ -f "/tmp/pip-tmp/requirements.txt" ]; then pip install -r /tmp/pip-tmp/requirements.txt; fi \
-    && rm -rf /tmp/pip-tmp
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
