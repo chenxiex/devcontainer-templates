@@ -1,7 +1,7 @@
 
-# Python with pip (python-pip)
+# Python with uv (python-uv)
 
-Develop Python 3 applications with pip package manager.
+Develop Python 3 applications with uv
 
 ## Options
 
@@ -13,6 +13,9 @@ This template references an image that was [pre-built](https://containers.dev/im
 
 * **Image**: mcr.microsoft.com/devcontainers/python ([source](https://github.com/devcontainers/images/tree/main/src/python))
 * **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/python/.devcontainer/devcontainer.json))
+
+## UV cache
+This template mount `~/.cache` into the container so uv cache can be shared among host and containers. It also set the default venv location to `~/.cache/venv-for${localWorkspaceFolder}` to allow soft link package installation. Checkout `devcontainer.json` for more details.
 
 ## Installing or updating Python utilities
 
@@ -27,4 +30,4 @@ See the [pipx documentation](https://pipxproject.github.io/pipx/docs/) for addit
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/chenxiex/devcontainer-templates/blob/main/src/python-pip/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/chenxiex/devcontainer-templates/blob/main/src/python-uv/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
