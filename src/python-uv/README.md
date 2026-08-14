@@ -15,7 +15,7 @@ This template references an image that was [pre-built](https://containers.dev/im
 * **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/python/.devcontainer/devcontainer.json))
 
 ## UV cache
-This template mount `~/.cache` into the container so uv cache can be shared among host and containers. It also set the default venv location to `~/.cache/venv-for${localWorkspaceFolder}` to allow soft link package installation. Checkout `devcontainer.json` for more details.
+This template mounts the named Docker volume `python-uv-cache` at `/cache`, allowing containers created from the template to share uv's cache without reading from or writing to the host's home directory. It also sets the default virtual environment location to `/cache/venv-for${localWorkspaceFolder}` to allow soft-link package installation. Check `devcontainer.json` for more details.
 
 ## Installing or updating Python utilities
 

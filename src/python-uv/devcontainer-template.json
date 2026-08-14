@@ -1,6 +1,6 @@
 {
     "id": "python-uv",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Python with uv",
     "description": "Develop Python 3 applications with uv",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/python-uv",
