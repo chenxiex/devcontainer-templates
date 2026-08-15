@@ -1,15 +1,15 @@
 {
     "id": "cpp-extra",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "name": "C++ extra",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools and dev tools such as clangd.",
-    "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/cpp",
+    "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/cpp-extra",
     "publisher": "chenxiex",
     "licenseURL": "https://github.com/chenxiex/devcontainer-templates/blob/main/LICENSE",
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Debian / Ubuntu version:",
+            "description": "Published Debian / Ubuntu image variant:",
             "proposals": [
                 "debian-13",
                 "ubuntu-24.04"

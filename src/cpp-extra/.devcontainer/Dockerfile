@@ -1,7 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/cpp:1-${templateOption:imageVariant}
-
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends clangd clang-tidy clang-format clang-tools
+FROM ghcr.io/chenxiex/devcontainer-templates/devcontainer-cpp-extra-${templateOption:imageVariant}:latest
 
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
 

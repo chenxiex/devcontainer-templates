@@ -1,6 +1,6 @@
 {
     "id": "python-uv",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "Python with uv",
     "description": "Develop Python 3 applications with uv",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/python-uv",
@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Python version:",
+            "description": "Published Python image variant:",
             "proposals": [
                 "3-trixie"
             ],

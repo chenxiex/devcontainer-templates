@@ -12,8 +12,8 @@ jobs:
         id: filter
         with:
           filters: |
-            color: ./**/color/**
-            hello: ./**/hello/**
+            cpp-extra: ./**/cpp-extra/**
+            python-uv: ./**/python-uv/**
 
   test:
     needs: [detect-changes]

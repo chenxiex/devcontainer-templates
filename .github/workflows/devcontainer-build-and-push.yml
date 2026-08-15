@@ -1,0 +1,33 @@
+name: Dev Container Build and Push Images
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - "images/**"
+      - ".github/workflows/devcontainer-build-and-push.yml"
+
+jobs:
+  build-and-push:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: python-uv-3-trixie
+            sub_folder: images/python-uv/3-trixie
+          - image: cpp-extra-debian-13
+            sub_folder: images/cpp-extra/debian-13
+          - image: cpp-extra-ubuntu-24.04
+            sub_folder: images/cpp-extra/ubuntu-24.04
+    uses: chenxiex/reusable_workflow/.github/workflows/devcontainer-build-and-push.yml@main
+    with:
+      registry: ghcr.io
+      image_name: "${{ github.repository }}/devcontainer-${{ matrix.image }}"
+      sub_folder: "${{ matrix.sub_folder }}"
+    secrets:
+      REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+      REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+    permissions:
+      contents: read
+      packages: write

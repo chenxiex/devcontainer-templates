@@ -3,6 +3,17 @@
 ghcr.io/chenxiex/devcontainer-templates/template-name:latest
 ```
 
+# Pre-built images
+
+The workflow at `.github/workflows/devcontainer-build-and-push.yml` publishes the image variants used by the templates:
+
+```text
+ghcr.io/chenxiex/devcontainer-templates/devcontainer-python-uv-<imageVariant>:latest
+ghcr.io/chenxiex/devcontainer-templates/devcontainer-cpp-extra-<imageVariant>:latest
+```
+
+Their Dockerfiles live under `images/`. The templates use these images as lightweight bases and retain project-specific customization points. The optional CMake reinstallation for `cpp-extra` remains in the user template.
+
 # Dev Container Templates: Self Authoring Guide
 
 > This repo provides a starting point and example for creating your own custom [Dev Container Templates](https://containers.dev/implementors/templates), hosted for free on GitHub Container Registry.  The example in this repository follows the [Dev Container Template distribution specification](https://containers.dev/implementors/templates-distribution/).  
