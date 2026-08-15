@@ -1,10 +1,10 @@
 {
-    "name": "Pre-build C++ extra (debian-13)",
+    "name": "Pre-build C++ extra (debian13)",
     "build": {
         "dockerfile": "../../Dockerfile",
         "context": "../..",
         "args": {
-            "VARIANT": "debian-13"
+            "VARIANT": "debian13"
         }
     }
 }

@@ -16,8 +16,8 @@ jobs:
         include:
           - image: python-uv-3-trixie
             sub_folder: images/python-uv/3-trixie
-          - image: cpp-extra-debian-13
-            sub_folder: images/cpp-extra/debian-13
+          - image: cpp-extra-debian13
+            sub_folder: images/cpp-extra/debian13
           - image: cpp-extra-ubuntu-24.04
             sub_folder: images/cpp-extra/ubuntu-24.04
     uses: chenxiex/reusable_workflow/.github/workflows/devcontainer-build-and-push.yml@main

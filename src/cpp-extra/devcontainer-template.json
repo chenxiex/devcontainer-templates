@@ -11,10 +11,10 @@
             "type": "string",
             "description": "Published Debian / Ubuntu image variant:",
             "proposals": [
-                "debian-13",
+                "debian13",
                 "ubuntu-24.04"
             ],
-            "default": "debian-13"
+            "default": "debian13"
         },
         "reinstallCmakeVersionFromSource": {
             "type": "string",
