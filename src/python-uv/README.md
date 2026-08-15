@@ -7,12 +7,14 @@ Develop Python 3 applications with uv
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Python version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon): | string | 3.14-trixie |
+| imageVariant | Published Python image variant: | string | 3-trixie |
 
-This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
+This template uses a [pre-built image](https://containers.dev/implementors/reference/#prebuilding), so uv and the shared cache directory do not need to be installed every time a user creates the container.
 
-* **Image**: mcr.microsoft.com/devcontainers/python ([source](https://github.com/devcontainers/images/tree/main/src/python))
-* **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/python/.devcontainer/devcontainer.json))
+* **Image**: `ghcr.io/chenxiex/devcontainer-templates/devcontainer-python-uv-<imageVariant>:latest`
+* **Image source**: [`images/python-uv`](https://github.com/chenxiex/devcontainer-templates/tree/main/images/python-uv)
+
+The generated `.devcontainer/Dockerfile` intentionally contains only the pre-built base image plus commented examples. Add project-specific `RUN`, `COPY`, or other Dockerfile instructions after `FROM` as usual.
 
 ## UV cache
 This template mounts the named Docker volume `python-uv-cache` at `/cache`, allowing containers created from the template to share uv's cache without reading from or writing to the host's home directory. It also sets the default virtual environment location to `/cache/venv-for${localWorkspaceFolder}` to allow soft-link package installation. Check `devcontainer.json` for more details.

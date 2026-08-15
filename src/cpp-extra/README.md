@@ -7,19 +7,21 @@ Develop C++ applications on Linux. Includes Debian C++ build tools and dev tools
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Debian / Ubuntu version (use Debian 12, Debian 11, Ubuntu 24.04, and Ubuntu 22.04 on local arm64/Apple Silicon): | string | debian-12 |
+| imageVariant | Published Debian / Ubuntu image variant: | string | debian-13 |
 | reinstallCmakeVersionFromSource | Install CMake version different from what base image has already installed. | string | none |
 
-This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
+This template uses a [pre-built image](https://containers.dev/implementors/reference/#prebuilding), so the C++ and LLVM tools do not need to be installed every time a user creates the container.
 
-* **Image**: ghcr.io/chenxiex/devcontainer-templates/cpp-extra ([source](https://github.com/chenxiex/devcontainer-templates/tree/main/images/cpp-extra))
-* **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/cpp/.devcontainer/devcontainer.json))
+* **Image**: `ghcr.io/chenxiex/devcontainer-templates/devcontainer-cpp-extra-<imageVariant>:latest`
+* **Image source**: [`images/cpp-extra`](https://github.com/chenxiex/devcontainer-templates/tree/main/images/cpp-extra)
+
+The generated `.devcontainer/Dockerfile` uses the pre-built base image, optionally reinstalls the selected CMake version, and retains commented examples. Add project-specific `RUN`, `COPY`, or other Dockerfile instructions as usual.
 
 ### Using Vcpkg
 
 This dev container and its associated image includes a clone of the [`Vcpkg`](https://github.com/microsoft/vcpkg) repo for library packages, and a bootstrapped instance of the [Vcpkg-tool](https://github.com/microsoft/vcpkg-tool) itself.
 
-The minimum version of `cmake` required to install packages is higher than the version available in the main package repositories for Debian (<=11) and Ubuntu (<=21.10).  `Vcpkg` will download a compatible version of `cmake` for its own use if that is the case (on x86_64 architectures), however you can opt to reinstall a different version of `cmake` globally by replacing `${templateOption:reinstallCmakeVersionFromSource}` with version (say 3.21.5) in `.devcontainer/Dockerfile`.
+The minimum version of `cmake` required to install packages can be higher than the version available in a distribution's package repository. `Vcpkg` can download a compatible version for its own use, or you can install a global CMake version through the template's `reinstallCmakeVersionFromSource` option. This optional installation remains in the generated Dockerfile and is not included in the pre-built image.
 
 Most additional library packages installed using Vcpkg will be downloaded from their [official distribution locations](https://github.com/microsoft/vcpkg#security). To configure Vcpkg in this container to access an alternate registry, more information can be found here: [Registries: Bring your own libraries to vcpkg](https://devblogs.microsoft.com/cppblog/registries-bring-your-own-libraries-to-vcpkg/).
 
