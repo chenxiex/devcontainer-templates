@@ -2,6 +2,8 @@ name: Dev Container Build and Push Images
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "23 4 1 * *"
   push:
     branches: ["main"]
     paths:
@@ -18,8 +20,8 @@ jobs:
             sub_folder: images/python-uv/3-trixie
           - image: cpp-extra-debian13
             sub_folder: images/cpp-extra/debian13
-          - image: cpp-extra-ubuntu-24.04
-            sub_folder: images/cpp-extra/ubuntu-24.04
+          - image: cpp-extra-ubuntu24.04
+            sub_folder: images/cpp-extra/ubuntu24.04
     uses: chenxiex/reusable_workflow/.github/workflows/devcontainer-build-and-push.yml@main
     with:
       registry: ghcr.io
