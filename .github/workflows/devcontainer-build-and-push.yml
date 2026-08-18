@@ -16,17 +16,18 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - image: python-uv-3-trixie
-            sub_folder: images/python-uv/3-trixie
-          - image: cpp-extra-debian13
-            sub_folder: images/cpp-extra/debian13
-          - image: cpp-extra-ubuntu24.04
-            sub_folder: images/cpp-extra/ubuntu24.04
+          - image: python-uv
+            variant: 3-trixie
+          - image: cpp-extra
+            variant: debian13
+          - image: cpp-extra
+            variant: ubuntu24.04
     uses: chenxiex/reusable_workflow/.github/workflows/devcontainer-build-and-push.yml@main
     with:
       registry: ghcr.io
-      image_name: "${{ github.repository }}/devcontainer-${{ matrix.image }}"
-      sub_folder: "${{ matrix.sub_folder }}"
+      image_name: "${{ github.repository }}/devcontainer-${{ matrix.image }}-${{ matrix.variant }}"
+      sub_folder: "images/${{ matrix.image }}"
+      build_variant: "${{ matrix.variant }}"
     secrets:
       REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
