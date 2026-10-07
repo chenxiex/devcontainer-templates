@@ -14,6 +14,7 @@ jobs:
           filters: |
             cpp-extra: ./**/cpp-extra/**
             python-uv: ./**/python-uv/**
+            devops: ./**/devops/**
 
   test:
     needs: [detect-changes]

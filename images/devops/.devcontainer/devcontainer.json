@@ -1,0 +1,10 @@
+{
+    "name": "Pre-build DevOps",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": "..",
+        "args": {
+            "VARIANT": "${localEnv:DEVCONTAINER_BUILD_VARIANT:alpine3.23}"
+        }
+    }
+}

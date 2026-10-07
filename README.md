@@ -10,6 +10,7 @@ The workflow at `.github/workflows/devcontainer-build-and-push.yml` publishes th
 ```text
 ghcr.io/chenxiex/devcontainer-templates/devcontainer-python-uv-<imageVariant>:latest
 ghcr.io/chenxiex/devcontainer-templates/devcontainer-cpp-extra-<imageVariant>:latest
+ghcr.io/chenxiex/devcontainer-templates/devcontainer-devops-<imageVariant>:latest
 ```
 
 Their Dockerfiles live under `images/`. The templates use these images as lightweight bases and retain project-specific customization points. The optional CMake reinstallation for `cpp-extra` remains in the user template.

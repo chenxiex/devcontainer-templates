@@ -1,0 +1,23 @@
+{
+    "id": "devops",
+    "version": "1.0.0",
+    "name": "DevOps",
+    "description": "Dev environment on Alpine Linux for Dockerfiles, CI workflows and helper scripts. Includes shellcheck and shfmt.",
+    "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/devops",
+    "publisher": "chenxiex",
+    "licenseURL": "https://github.com/chenxiex/devcontainer-templates/blob/main/LICENSE",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Published Alpine image variant:",
+            "proposals": [
+                "alpine3.23"
+            ],
+            "default": "alpine3.23"
+        }
+    },
+    "platforms": ["Any"],
+    "optionalPaths": [
+        ".github/*"
+    ]
+}
