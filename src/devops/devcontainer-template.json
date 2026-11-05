@@ -1,6 +1,6 @@
 {
     "id": "devops",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "name": "DevOps",
     "description": "Dev environment on Debian Trixie for Dockerfiles, CI workflows and helper scripts. Includes shellcheck and shfmt.",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/devops",
