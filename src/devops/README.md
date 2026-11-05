@@ -1,13 +1,13 @@
 
 # DevOps (devops)
 
-Dev environment on Alpine Linux for Dockerfiles, CI workflows and helper scripts. Includes shellcheck and shfmt.
+Dev environment on Debian Trixie for Dockerfiles, CI workflows and helper scripts. Includes shellcheck and shfmt.
 
 ## Options
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Published Alpine image variant: | string | alpine3.23 |
+| imageVariant | Published Debian image variant: | string | trixie |
 
 This template uses a [pre-built image](https://containers.dev/implementors/reference/#prebuilding), so the tools below do not need to be installed every time a user creates the container.
 
