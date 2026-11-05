@@ -23,7 +23,7 @@ jobs:
           - image: cpp-extra
             variant: ubuntu24.04
           - image: devops
-            variant: alpine3.23
+            variant: trixie
     uses: chenxiex/reusable_workflow/.github/workflows/devcontainer-build-and-push.yml@main
     with:
       registry: ghcr.io
