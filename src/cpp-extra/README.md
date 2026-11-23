@@ -1,7 +1,7 @@
 
 # C++ extra (cpp-extra)
 
-Develop C++ applications on Linux. Includes Debian C++ build tools and dev tools such as clangd.
+Develop C++ applications on Linux. Includes Debian C++ build tools and the clice language server.
 
 ## Options
 
@@ -10,12 +10,28 @@ Develop C++ applications on Linux. Includes Debian C++ build tools and dev tools
 | imageVariant | Published Debian / Ubuntu image variant: | string | debian13 |
 | reinstallCmakeVersionFromSource | Install CMake version different from what base image has already installed. | string | none |
 
-This template uses a [pre-built image](https://containers.dev/implementors/reference/#prebuilding), so the C++ and LLVM tools do not need to be installed every time a user creates the container.
+This template uses a [pre-built image](https://containers.dev/implementors/reference/#prebuilding), so the C++ tools and clice do not need to be installed every time a user creates the container.
 
 * **Image**: `ghcr.io/chenxiex/devcontainer-templates/devcontainer-cpp-extra-<imageVariant>:latest`
 * **Image source**: [`images/cpp-extra`](https://github.com/chenxiex/devcontainer-templates/tree/main/images/cpp-extra)
 
 The generated `.devcontainer/Dockerfile` uses the pre-built base image, optionally reinstalls the selected CMake version, and retains commented examples. Add project-specific `RUN`, `COPY`, or other Dockerfile instructions as usual.
+
+### Using clice
+
+The image installs [clice 1.0.0](https://github.com/clice-io/clice/releases/tag/v1.0.0) from its official Linux release package for x64 or ARM64. Image maintainers can select another release with the `CLICE_VERSION` build argument in `images/cpp-extra/Dockerfile`.
+
+The template installs the official `clice-io.clice` VS Code extension and sets `clice.executable` to `/usr/local/bin/clice`. It disables clangd and C/C++ IntelliSense to avoid duplicate language services; the C/C++ extension remains available for debugging. The image also retains `clang-format`, `clang-tidy`, and `clang-tools` as standalone tools.
+
+For CMake projects, generate a compilation database with a Makefile or Ninja generator:
+
+```sh
+cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+```
+
+clice discovers `compile_commands.json` in the project root and its immediate subdirectories, including `build/`. See the [clice project setup guide](https://docs.clice.io/clice/guide/quick-start) for other build systems.
+
+When migrating an existing container, apply these extension and settings changes to its `.devcontainer/devcontainer.json`, then rebuild the container after the updated pre-built image has been published. If the clangd extension is already installed, the `clangd.enable` setting disables its language service.
 
 ### Using Vcpkg
 
