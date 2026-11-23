@@ -18,10 +18,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"llvm-vs-code-extensions.vscode-clangd"
+				"clice-io.clice"
 			],
 			"settings": {
-				"C_Cpp.intelliSenseEngine": "disabled"
+				"C_Cpp.intelliSenseEngine": "disabled",
+				"clice.executable": "/usr/local/bin/clice"
 			}
 		}
 	}

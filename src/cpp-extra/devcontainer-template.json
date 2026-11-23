@@ -1,8 +1,8 @@
 {
     "id": "cpp-extra",
-    "version": "1.2.5",
+    "version": "1.3.0",
     "name": "C++ extra",
-    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools and dev tools such as clangd.",
+    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools and the clice language server.",
     "documentationURL": "https://github.com/chenxiex/devcontainer-templates/tree/main/src/cpp-extra",
     "publisher": "chenxiex",
     "licenseURL": "https://github.com/chenxiex/devcontainer-templates/blob/main/LICENSE",
